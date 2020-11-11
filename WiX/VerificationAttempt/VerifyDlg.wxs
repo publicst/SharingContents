@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <?include $(var.MSBuildProjectDirectory)\CommonDefinitions.wxi?>
+  <Fragment>
+    <!--<SetProperty Id="RTTextFinal" Value="RTText" After="InstallFinalize"/>-->
+    <UI>
+      <Dialog Id="VerifyDlg" Width="600" Height="400" Title="$(var.PRODUCT_NAME)">
+        <!-- Background Image -->
+        <Control Id="Background" Type="Bitmap" Text="BG0Base" Width="600" Height="400" X="0" Y="0" TabSkip="no" />
+
+        <!-- Main Body Text-->
+        <Control Id="MainBodyHeader" X="10" Y="10" NoWrap="no" RightAligned="no" Transparent="yes" Type="Text" Width="400" Height="20"
+                 Text="!(loc.EndDlg_MainBodyHeader)"/>
+
+        <Control Id="VerificationView" Type="ScrollableText" X="180" Y="80" Width="410" Height="280" Sunken="yes" TabSkip="no" Text="{\rtf1\ansi\deff0{\colortbl;\red0\green0\blue0;\red255\green0\blue0;}default text\line}"/>
+
+        <!-- Buttons -->
+        <!--<Control Id="Back" Type="PushButton" X="200" Y="370" Width="60" Height="20" Text="!(loc.Common_Button_Back)"/>-->
+        <Control Id="Finish" Type="PushButton" X="200" Y="370" Width="60" Height="20" Default="yes" Text="!(loc.WixUIFinish)" Cancel="yes"/>
+      </Dialog>
+    </UI>
+  </Fragment>
+</Wix>
